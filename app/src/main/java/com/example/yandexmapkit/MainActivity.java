@@ -28,4 +28,19 @@ public class MainActivity extends AppCompatActivity {
                 new Animation(Animation.Type.SMOOTH, 0),
                 null);
     }
+
+
+    @Override
+    protected void onStop() {
+        mapView.onStop();
+        MapKitFactory.getInstance().onStop();
+        super.onStop();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        MapKitFactory.getInstance().onStart();
+        mapView.onStart();
+    }
 }
